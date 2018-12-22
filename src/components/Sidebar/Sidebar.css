@@ -1,0 +1,28 @@
+.sidebar-element{
+    margin:0;
+    border-bottom: 1px solid var(--gray-color);
+
+}
+
+.sidebar-content {
+    background: var(--gray-color-light);
+    border-right: 1px solid var(--gray-color);
+	text-align: center;
+    width: 250px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.link-sidebar{
+    color:rgba(40, 167, 69,1) !important;
+}
+
+.link-sidebar:hover{
+    background-color:rgb(36, 196, 73) !important;
+    color:white !important; 
+}
+
+.link-sidebar:focus{
+    border-left: 4px solid rgba(40, 167, 69,1);
+    border-bottom: 1px solid var(--gray-color);
+}

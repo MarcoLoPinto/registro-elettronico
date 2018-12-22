@@ -1,0 +1,34 @@
+.alert-top{
+    bottom: auto !important;
+}
+
+.alert-bottom{
+    top: auto !important;
+}
+
+.transparent-style{
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.transparent-style:hover{
+    border: transparent !important;
+}
+
+/* Alert-Styles */
+
+.alert-style-classic{
+    color: rgba(255, 255, 255,1) !important;
+    background-color: rgba(97, 189, 102, 0.7) !important;
+    border: 1px solid rgba(35, 202, 74, 0.5) !important;
+    border-radius: 10px !important;
+    font-size: 1.2rem;
+}
+
+.alert-style-material{
+    color: rgba(0, 0, 0,1) !important;
+    background-color: rgba(233, 233, 233, 0.8) !important;
+    border-left: 5px solid rgba(35, 202, 74, 0.8) !important;
+    border-radius: 0px !important;
+    font-size: 1.2rem;
+}

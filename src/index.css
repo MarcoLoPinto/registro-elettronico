@@ -1,0 +1,85 @@
+/*COLORS*/
+:root{
+    --primary-color: #00c853;
+    --primary-color-light: #5efc82;
+    --primary-color-dark: #009624;
+
+    --secondary-color: #ff8f00;
+    --secondary-color-light: #ffc046;
+    --secondary-color-dark: #c56000;
+
+    --gray-color-light: #f8f8f8;
+    --gray-color: #c0c0c0;
+
+    --color-text: white;
+
+}
+
+/*RESPONSIVE*/
+.mobile-only-visible{
+    display: block;
+}
+
+.desktop-only-visible{
+    display: none;
+}
+
+@media only screen and (min-width: 768px){
+    .mobile-only-visible{
+        display: none;
+    }
+
+    .desktop-only-visible{
+        display: block;
+    }
+
+}
+
+/*STYLE ALL APP IN USER VIEW*/
+.app-wrapper{
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100vh;
+}
+
+/*NO OUTLINE*/
+:focus,
+:active:focus,
+.active:focus,
+.focus,
+:active.focus,
+.active.focus{
+    outline: none !important;
+}
+
+/*SIDE BAR AND MAIN CONTENT STYLE*/
+.outer-navbar{
+    height: calc(100vh - 56px);
+	display: flex;
+	flex-direction: row;
+	flex: 1 0 auto;
+}
+
+.outer-navbar > .main-content {
+	/*flex: 1;
+    overflow: hidden;*/
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+@media only screen and (min-width: 768px){
+    .outer-navbar > .main-content{
+        width: calc(100vw - 250px);
+    }
+}
+
+/*SCROLLBAR STYLE*/
+.customScrollBar::-webkit-scrollbar{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+.customScrollBar::-webkit-scrollbar-thumb{
+	background-color: var(--primary-color-light);
+}
