@@ -1,6 +1,6 @@
 import React from "react";
 import Timeline, {TimelineElement} from "../../components/Timeline/Timeline";
-i//mport { getTimelineCircolari, getTimelineProfiloStudente} from "../../tools/api";
+//import { getTimelineCircolari, getTimelineProfiloStudente} from "../../tools/api";
 
 //props.type -> tipo di funzione da invocare (promise) per ottenere determinati dati
 

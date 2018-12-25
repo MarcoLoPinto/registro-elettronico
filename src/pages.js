@@ -51,7 +51,7 @@ export const Profilo = () => {
                 Profilo
             </h2>
 
-            <div className="w-50">
+            <div className="width-50">
                 <FileManager name="NomeFile" date="Data" category="Categoria" type="Tipo" viewable="true" downloadable="true" />
                 <FileManager name="NomeFile" date="Data" category="Categoria" type="Tipo" viewable="true" deletable="true" />
                 <FileManager name="NomeFile" date="Data" category="Categoria" type="Tipo" downloadable="true" deletable="true" />

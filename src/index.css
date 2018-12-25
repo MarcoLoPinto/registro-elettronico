@@ -83,3 +83,9 @@
 .customScrollBar::-webkit-scrollbar-thumb{
 	background-color: var(--primary-color-light);
 }
+
+@media only screen and (min-width: 964px){
+    .width-50{
+        width: 50%;
+    }
+}
