@@ -37,6 +37,7 @@ class Navbar extends React.Component {
                         {/*Links mobile only view*/}
                         <Link className="nav-link link-text mobile-only-visible" to="/timelinelink">{"TimelineLink"}</Link>
 
+
                         <div className="dropdown-divider mobile-only-visible"></div>
 
                         {/*Desktop+Mobile view*/}

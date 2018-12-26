@@ -157,14 +157,20 @@ export function sendEmail(dest,obj,text,files){
     });
 }
 
+export function getUserInfo(){
+    return new Promise((resolve,reject) =>{
+        resolve({nome:"Paolo",cognome:"Rossi",tipo:"Insegnante"});
+    });
+}
+
 //get timeline object: {title:string,elements:array}
 export function getTimelineCircolari(){
     return new Promise((resolve,reject) => {
-        resolve({title:"TitoloCircolari", elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
+        resolve({elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
     });
 }
 export function getTimelineProfiloStudente(){
     return new Promise((resolve,reject) => {
-        resolve({title:"TitoloProfiloStudente", elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
+        resolve({elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
     });
 }
