@@ -157,6 +157,12 @@ export function sendEmail(dest,obj,text,files){
     });
 }
 
+export function getUserInfo(){
+    return new Promise((resolve,reject) =>{
+        resolve({nome:"Paolo",cognome:"Rossi",tipo:"Insegnante"});
+    });
+}
+
 //get timeline object: {title:string,elements:array}
 export function getTimelineCircolari(){
     return new Promise((resolve,reject) => {

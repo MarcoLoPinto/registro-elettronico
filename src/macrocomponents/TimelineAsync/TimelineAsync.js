@@ -10,11 +10,17 @@ class TimelineAsync extends React.Component{
         super(props);
         this.state = {
             title = "",
-            elements = []
+            elements = [
+                {
+                    title: "Caricamento...",
+                    date: "...",
+                    text: "Caricamento " + props.title +" in corso"
+                }
+            ]
         }
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         //Right?
         // switch(this.props.type){
         //     case "circolari":
@@ -40,9 +46,8 @@ class TimelineAsync extends React.Component{
 
 
         if(this.props.fetchData && typeof this.props.fetchData == "function"){
-            this.props.fetchData().then(elements => {
-                this.setState({elements});
-            })
+            let elements = await this.props.fetchData();
+            this.setState({elements});
         }
     }
 

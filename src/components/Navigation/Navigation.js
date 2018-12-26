@@ -4,14 +4,29 @@ import { Route } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Sidebar, { SidebarLink } from "../Sidebar/Sidebar"
 
+import { getUserInfo } from "../../tools/api";
+
 import {Mainpage, Profilo, Messaggi, Logout, TimelineLink} from "../../pages";
 
 class Navigation extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            username: "User"
+        }
+    }
+
+    async componentDidMount(){
+        let user = await getUserInfo();
+        let username = user.nome + " " + user.cognome;
+        this.setState({username});
+    }
+
     render() {
         return (
             <div className="app-wrapper">
-                <Navbar title="Registro Elettronico" user="PersonaUtente" links-navbar="" links-toggler="" />
+                <Navbar title="Registro Elettronico" user={this.state.username} links-navbar="" links-toggler="" />
                 
                 <div className="outer-navbar">
                     {/*Sidebar sidenav*/}
