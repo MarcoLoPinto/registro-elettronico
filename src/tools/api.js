@@ -166,11 +166,28 @@ export function getUserInfo(){
 //get timeline object: {title:string,elements:array}
 export function getTimelineCircolari(){
     return new Promise((resolve,reject) => {
-        resolve({elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
+        resolve([{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]);
     });
 }
 export function getTimelineProfiloStudente(){
     return new Promise((resolve,reject) => {
-        resolve({elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
+        resolve([{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]);
+    });
+}
+
+export function getDocuments(){
+    return new Promise((resolve,reject) => {
+        resolve([
+            {
+                oggetto: "Licenza Maternità",
+                data: "12/12/12",
+                categoria: "Licenze"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            }
+        ]);
     });
 }

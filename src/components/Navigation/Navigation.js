@@ -7,6 +7,7 @@ import Sidebar, { SidebarLink } from "../Sidebar/Sidebar"
 import { getUserInfo } from "../../tools/api";
 
 import {Mainpage, Profilo, Messaggi, Logout, TimelineLink} from "../../pages";
+import PageDocumenti from "../../pages/segreteria/PageDocumenti";
 
 class Navigation extends React.Component {
 
@@ -34,7 +35,7 @@ class Navigation extends React.Component {
                     <Sidebar className="desktop-only-visible">
                         <SidebarLink to={"/timelinelink"}>TimelineLink</SidebarLink>
                         <SidebarLink to={"/profilo"}>AltroProfilo</SidebarLink>
-                        <SidebarLink to={"/profilo"}>AltroProfilo</SidebarLink>
+                        <SidebarLink to={"/documenti"}>Documenti</SidebarLink>
                     </Sidebar>
 
                     {/*Main content routing*/}
@@ -44,6 +45,7 @@ class Navigation extends React.Component {
                         <Route path="/messaggi" exact component={Messaggi} />
                         <Route path="/logout" exact component={Logout} />
                         <Route path="/timelinelink" exact component={TimelineLink} />
+                        <Route path="/documenti" exact component={PageDocumenti} />
                     </div>
 
                 </div>
