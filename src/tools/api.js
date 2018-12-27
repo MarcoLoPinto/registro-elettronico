@@ -157,6 +157,21 @@ export function sendEmail(dest,obj,text,files){
     });
 }
 
+/**
+ * 
+ * @param {String} nome - user's name
+ * @param {String} cognome - user's surname
+ * @param {String} annoNascita - user's birthday
+ * @param {Array} luogoNascita - user's birth place
+ * @param {Array} codiceFiscale - user's CF
+ * @param {Array} tipoProfilo - user type ("Insegnante","Studente","Genitore")
+ */
+export function createUserProfile(nome,cognome,annoNascita,luogoNascita,codiceFiscale,tipoProfilo){
+    return new Promise((resolve,reject) => {
+        resolve({sent: true});
+    });
+}
+
 export function getUserInfo(){
     return new Promise((resolve,reject) =>{
         resolve({nome:"Paolo",cognome:"Rossi",tipo:"Insegnante"});

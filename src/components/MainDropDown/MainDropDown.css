@@ -34,3 +34,9 @@
     height: 100%;
     border-radius: 0px;
 }
+
+.dropdown-padding{
+    padding: .563rem .75rem;
+    width: 100%;
+    overflow: auto;
+}
