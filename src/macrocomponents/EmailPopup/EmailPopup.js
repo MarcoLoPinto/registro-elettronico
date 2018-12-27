@@ -25,13 +25,10 @@ class EmailPopup extends React.Component{
 
     postData(e){
         e.preventDefault();
-        console.log(e);
         var toField = e.target.elements["toField"].value;
         var objectField = e.target.elements["objectField"].value;
         var textareaField = e.target.elements["textareaField"].value;
         var files = this.state.files;
-
-        console.log([toField,objectField,textareaField,files]);
 
         sendEmail(toField,objectField,textareaField,files);
     }
