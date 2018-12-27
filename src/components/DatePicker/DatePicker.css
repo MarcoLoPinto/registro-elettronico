@@ -1,0 +1,15 @@
+.datepicker{
+    margin: 5px 2px;
+    padding-right: 0px;
+}
+
+.datepicker::-webkit-inner-spin-button { 
+    display: none; 
+}
+
+.datepicker-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}

@@ -1,0 +1,8 @@
+.timepicker{
+    margin: 5px 2px;
+    padding-right: 0px;
+}
+
+.timepicker::-webkit-inner-spin-button { 
+    display: none; 
+}
