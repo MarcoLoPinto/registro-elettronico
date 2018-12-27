@@ -9,7 +9,6 @@ class TimelineAsync extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            title = "",
             elements = [
                 {
                     title: "Caricamento...",
