@@ -3,6 +3,7 @@ import AreaInputText from "../../../components/AreaInputText/AreaInputText";
 import MainDropDown from "../../../components/MainDropDown/MainDropDown";
 import { createUserProfile } from "../../../tools/api";
 import Alert from "../../../components/Alert/Alert";
+import "./PageCreazioneProfili.css";
 
 class PageCreazioneProfili extends React.Component{ //TODO: auto-redirect to ricerca utenti(?)
 
@@ -36,40 +37,23 @@ class PageCreazioneProfili extends React.Component{ //TODO: auto-redirect to ric
         return(
             <div>
                 <form onSubmit={this.postData}>
-                    <div className="d-flex flex-column align-items-center mt-3">
+                    <div className="d-flex flex-column align-items-center mt-5">
                         <div className="d-flex flex-row mt-3 justify-content-center">
 
                             <div className="d-flex flex-column">
-                                <div className="d-flex flex-column">
-                                    <h4 className="d-flex justify-content-center">Nome</h4>
-                                    <AreaInputText className="input-visible-classic" name="nome" />
-                                </div>
-                                <div className="d-flex flex-column mt-3">
-                                    <h4 className="d-flex justify-content-center">Luogo di nascita</h4>
-                                    <AreaInputText className="input-visible-classic" name="luogoNascita" />
-                                </div>
+                                <AreaInputText className="set-dimensions input-visible-classic" placeholder="Nome..." name="nome" />
+                                <AreaInputText className="set-dimensions input-visible-classic mt-3" placeholder="Luogo di nascita..." name="luogoNascita" />
                             </div>
                             <div className="d-flex flex-column ml-3">
-                                <div className="d-flex flex-column">
-                                    <h4 className="d-flex justify-content-center">Cognome</h4>
-                                    <AreaInputText className="input-visible-classic" name="cognome" />
-                                </div>
-                                <div className="d-flex flex-column mt-3">
-                                    <h4 className="d-flex justify-content-center">Codice fiscale</h4>
-                                    <AreaInputText className="input-visible-classic" name="codiceFiscale" />
-                                </div>
+                                
+                                <AreaInputText className="set-dimensions input-visible-classic" placeholder="Cognome..." name="cognome" />
+                                <AreaInputText className="set-dimensions input-visible-classic mt-3" placeholder="Codice fiscale..." name="codiceFiscale" />
 
                                 <button type="submit" className="btn btn-success mt-3">Crea</button>
                             </div>
                             <div className="d-flex flex-column ml-3">
-                                <div className="d-flex flex-column">
-                                    <h4 className="d-flex justify-content-center">Anno di nascita</h4>
-                                    <AreaInputText className="input-visible-classic" name="annoNascita" />
-                                </div>
-                                <div className="d-flex flex-column mt-3">
-                                    <h4 className="d-flex justify-content-center">Tipo profilo</h4>
-                                    <MainDropDown className="dropdown-centered btn-success" maxwidth={"100%"} options={["Insegnante", "Studente", "Genitore"]} name="tipoProfilo" />
-                                </div>
+                                <AreaInputText className="set-dimensions input-visible-classic" placeholder="Anno di nascita..." name="annoNascita" />
+                                <MainDropDown className="set-dimensions dropdown-centered btn-success dropdown-padding mt-3" maxwidth={"100%"} options={["Insegnante", "Studente", "Genitore"]} name="tipoProfilo" />
                             </div>
                         </div>
                         
