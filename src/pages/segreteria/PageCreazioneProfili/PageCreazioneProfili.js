@@ -76,7 +76,7 @@ class PageCreazioneProfili extends React.Component{ //TODO: auto-redirect to ric
                     </div>
                 </form>
 
-                <Alert ref={this.alertCreation} id="pageCreazioneProfili-popup-mininput" seconds="3" labelledby="pageCreazioneProfili-mininput" className="alert-bottom" alertclass="alert-style-material" >
+                <Alert ref={this.alertCreation} id="pageCreazioneProfili-popup-mininput" seconds="3" labelledby="pageCreazioneProfili-mininput" className="alert-bottom relative-center" alertclass="alert-style-material" >
                     I campi non possono essere vuoti!
                 </Alert>
             </div>

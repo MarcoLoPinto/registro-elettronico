@@ -17,6 +17,7 @@
  *          Css rules for the entire component
  *          if you want it at bottom screen -> "alert-bottom"
  *          if you want it at top screen -> "alert-top"
+ *          if you want it centered in the relative div wrapper -> "relative-center"
  * 
  *      alertclass:
  *          Css rules for only the alert style

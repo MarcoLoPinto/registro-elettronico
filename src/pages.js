@@ -107,7 +107,7 @@ export const Logout = () => {
             <MainButton data-toggle="modal" data-target="#alert-popup">
                 {"Show Alert"}
             </MainButton>
-            <Alert id="alert-popup" seconds="3" labelledby="inviaMail" className="alert-bottom" alertclass="alert-style-material" >
+            <Alert id="alert-popup" seconds="3" labelledby="inviaMail" className="alert-bottom relative-center" alertclass="alert-style-material" >
                 Allerta qualcosa! Testo più lungo per provare, ancora più luuuungo! Moooolto di piuuuu
             </Alert>
             <h2 className="d-flex justify-content-center">Altro testo</h2>
