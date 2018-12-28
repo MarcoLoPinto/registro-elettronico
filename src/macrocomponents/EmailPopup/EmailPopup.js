@@ -4,6 +4,7 @@ import MainTextarea from "../../components/MainTextarea/MainTextarea";
 import AreaInputText from "../../components/AreaInputText/AreaInputText";
 import ImportFileList from "../../components/ImportFileList/ImportFileList";
 import { sendEmail } from "../../tools/api";
+import Alert from "../../components/Alert/Alert";
 
 
 class EmailPopup extends React.Component{
@@ -15,6 +16,8 @@ class EmailPopup extends React.Component{
             files: []
         }
 
+        this.alertEmail = React.createRef();
+        
         this.getFileData = this.getFileData.bind(this);
         this.postData = this.postData.bind(this);
     }
@@ -30,7 +33,8 @@ class EmailPopup extends React.Component{
         var textareaField = e.target.elements["textareaField"].value;
         var files = this.state.files;
 
-        sendEmail(toField,objectField,textareaField,files);
+        if(toField=="") this.alertEmail.current.toggleAlert();
+        else sendEmail(toField,objectField,textareaField,files);
     }
 
     render(){
@@ -56,6 +60,9 @@ class EmailPopup extends React.Component{
                         <button type="submit" className="btn btn-success">Invia</button>
                     </PopupFooter>
                 </Popup>
+                <Alert ref={this.alertEmail} id="email-popup-mintofield" seconds="3" labelledby="email-mintofield" className="alert-bottom" alertclass="alert-style-material" >
+                    E' obbligatorio specificare un destinatario!
+                </Alert>
             </form>
         );
     }

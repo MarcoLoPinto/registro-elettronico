@@ -29,8 +29,7 @@ class PageCreazioneProfili extends React.Component{ //TODO: auto-redirect to ric
         inputLuogoNascita==""||
         inputCodiceFiscale==""||
         dropTipoProfilo=="") this.alertCreation.current.toggleAlert();
-        
-        createUserProfile(inputNome,inputCognome,inputAnnoNascita,inputLuogoNascita,inputCodiceFiscale,dropTipoProfilo); //API
+        else createUserProfile(inputNome,inputCognome,inputAnnoNascita,inputLuogoNascita,inputCodiceFiscale,dropTipoProfilo); //API
     }
 
     render(){
