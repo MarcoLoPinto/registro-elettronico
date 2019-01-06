@@ -348,3 +348,33 @@ export function getUserlist(inputNome,inputCognome,inputDataNascita,inputLuogoNa
         ]);
     });
 }
+
+export function getChildren(ID){
+    return new Promise((resolve,reject) => {
+        setTimeout(() =>{
+            resolve([
+                {
+                    ID: "ID1",
+                    nome: "nome1",
+                    cognome: "cognome1"
+                },
+                {
+                    ID: "ID1",
+                    nome: "nome1",
+                    cognome: "cognome1"
+                },
+                {
+                    ID: "ID1",
+                    nome: "nome1",
+                    cognome: "cognome1"
+                },
+                {
+                    ID: "ID1",
+                    nome: "nome1",
+                    cognome: "cognome1"
+                }
+            ]);
+        },2000)
+        
+    });
+}

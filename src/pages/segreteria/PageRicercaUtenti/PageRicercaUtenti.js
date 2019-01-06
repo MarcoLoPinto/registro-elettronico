@@ -3,18 +3,24 @@ import Userlist, {UserListElement} from "../../../components/Userlist/Userlist";
 import AreaInputText from "../../../components/AreaInputText/AreaInputText";
 import DatePicker from "../../../components/DatePicker/DatePicker";
 import Alert from "../../../components/Alert/Alert";
-import { getUserlist } from "../../../tools/api";
-import Popup from "../../../components/Popup/Popup";
+import { getUserlist, getChildren } from "../../../tools/api";
+import Popup, {PopupBody} from "../../../components/Popup/Popup";
 
 class PageRicercaUtenti extends React.Component{
 
     constructor(props){
         super(props);
 
-        this.state = { elements:[], popupBody:(<div></div>) };
+        this.state = { 
+            elements:[],
+            selected: {tipo: null},
+            popupBody:(<div></div>),
+            figli: "Caricamento..."
+        };
 
         this.getData = this.getData.bind(this);
         this.openPopup = this.openPopup.bind(this);
+        this.getFigli = this.getFigli.bind(this);
         this.alertCreation = React.createRef();
         this.popupUser = React.createRef();
     }
@@ -36,29 +42,24 @@ class PageRicercaUtenti extends React.Component{
         }); //API
     }
 
+    async getFigli(id,callback){
+        let figli = (await getChildren(id)).map((item)=> <p>{item.ID}</p>)
+        this.setState({figli},()=>console.log(figli));
+        console.log(this.state);
+    }
+
     openPopup(index){
-        console.log(this.state.elements[index]);
-        let popupBody;
-        switch(this.state.elements[index].tipo){
-            case "genitore":
-                popupBody = (
-                    <div className="dropdown-divider"></div>
-                );
-                break;
-            default:
-                popupBody = (
-                    <div>
-                        <div className="dropdown-divider"></div>
-                        <div className="dropdown-divider"></div>
-                        <div className="dropdown-divider"></div>
-                        <div className="dropdown-divider"></div>
-                        <div className="dropdown-divider"></div>
-                    </div>
-                );
-                break;
-        }
-        this.setState({popupBody});
-        this.popupUser.current.togglePopup();
+        this.setState((state) => ({selected: state.elements[index]}),()=>{
+            switch(this.state.selected.tipo){
+                case "genitore":
+                    this.getFigli(this.state.elements[index].ID);
+                    this.popupUser.current.togglePopup();
+                    break;
+                default:
+                    break;
+            }
+        });
+        
     }
 
     render(){
@@ -93,7 +94,32 @@ class PageRicercaUtenti extends React.Component{
                     I campi non possono essere vuoti!
                 </Alert>
                 <Popup id="popup-user" ref={this.popupUser}>
-                    {this.state.popupBody}
+                    <PopupBody>
+                        { 
+                            this.state.selected.tipo == "genitore" && (
+                                <div>
+                                    <div className="d-flex flex-row justify-content-center">
+                                        <AreaInputText className="input-visible-classic input-area-documenti" name="keyword" />
+                                        <button type="submit" className="btn btn-success">+</button>
+                                    </div>
+                                    <div className="dropdown-divider"></div>
+                                    {this.state.figli}
+                                </div>
+                            )
+                        }
+                        { 
+                            this.state.selected.tipo == "insegnante" && (
+                                <div>
+                                    <div className="d-flex flex-row justify-content-center">
+                                        <AreaInputText className="input-visible-classic input-area-documenti" name="keyword" />
+                                        <button type="submit" className="btn btn-success">+</button>
+                                    </div>
+                                    <div className="dropdown-divider"></div>
+                                    {this.state.figli}
+                                </div>
+                            )
+                        }
+                    </PopupBody>
                 </Popup>
             </div>
         );

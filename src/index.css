@@ -45,6 +45,11 @@ body{
 
 }
 
+/*MOUSE HOVER*/
+.mouse-hover:hover{
+    cursor: pointer;
+}
+
 /*STYLE ALL APP IN USER VIEW*/
 .app-wrapper{
 	display: flex;
