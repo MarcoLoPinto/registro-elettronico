@@ -51,7 +51,7 @@ export const Profilo = () => {
                 Profilo
             </h2>
 
-            <div className="w-50">
+            <div className="width-50">
                 <FileManager name="NomeFile" date="Data" category="Categoria" type="Tipo" viewable="true" downloadable="true" />
                 <FileManager name="NomeFile" date="Data" category="Categoria" type="Tipo" viewable="true" deletable="true" />
                 <FileManager name="NomeFile" date="Data" category="Categoria" type="Tipo" downloadable="true" deletable="true" />
@@ -107,7 +107,7 @@ export const Logout = () => {
             <MainButton data-toggle="modal" data-target="#alert-popup">
                 {"Show Alert"}
             </MainButton>
-            <Alert id="alert-popup" seconds="3" labelledby="inviaMail" className="alert-bottom" alertclass="alert-style-material" >
+            <Alert id="alert-popup" seconds="3" labelledby="inviaMail" className="alert-bottom relative-center" alertclass="alert-style-material" >
                 Allerta qualcosa! Testo più lungo per provare, ancora più luuuungo! Moooolto di piuuuu
             </Alert>
             <h2 className="d-flex justify-content-center">Altro testo</h2>

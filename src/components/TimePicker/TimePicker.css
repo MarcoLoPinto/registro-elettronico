@@ -1,0 +1,21 @@
+.timepicker{
+    margin: 5px 2px;
+    padding-right: 0px;
+}
+
+.timepicker::-webkit-inner-spin-button { 
+    display: none; 
+}
+
+.timepicker-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 6px 2px;
+}
+
+.timepicker-container label{
+    margin: 0px;
+    margin-right: 2px; 
+}

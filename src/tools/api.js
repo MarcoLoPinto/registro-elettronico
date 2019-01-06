@@ -157,14 +157,132 @@ export function sendEmail(dest,obj,text,files){
     });
 }
 
+/**
+ * 
+ * @param {String} nome - user's name
+ * @param {String} cognome - user's surname
+ * @param {String} annoNascita - user's birthday
+ * @param {Array} luogoNascita - user's birth place
+ * @param {Array} codiceFiscale - user's CF
+ * @param {Array} tipoProfilo - user type ("Insegnante","Studente","Genitore")
+ */
+export function createUserProfile(nome,cognome,annoNascita,luogoNascita,codiceFiscale,tipoProfilo){
+    return new Promise((resolve,reject) => {
+        resolve({sent: true});
+    });
+}
+
+export function getUserInfo(){
+    return new Promise((resolve,reject) =>{
+        resolve({nome:"Paolo",cognome:"Rossi",tipo:"Insegnante"});
+    });
+}
+
 //get timeline object: {title:string,elements:array}
 export function getTimelineCircolari(){
     return new Promise((resolve,reject) => {
-        resolve({title:"TitoloCircolari", elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
+        resolve([{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]);
     });
 }
 export function getTimelineProfiloStudente(){
     return new Promise((resolve,reject) => {
-        resolve({title:"TitoloProfiloStudente", elements:[{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]});
+        resolve([{title:"titolo1",date:"date1"},{title:"titolo2",date:"date2"}]);
+    });
+}
+
+export function getDocuments(){
+    return new Promise((resolve,reject) => {
+        resolve([
+            {
+                oggetto: "Licenza Maternità",
+                data: "12/12/12",
+                categoria: "Licenze"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            },
+            {
+                oggetto: "Pagellino Alberto Santi",
+                data: "1/3/2018",
+                categoria: "Pagelle"
+            }
+        ]);
     });
 }

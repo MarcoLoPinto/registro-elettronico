@@ -1,0 +1,27 @@
+.horizontal-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.horizontal-container .filter-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    margin-top: 3rem;
+}
+
+.horizontal-container.flex-fill{
+    flex-grow: 1;
+}
+
+
+@media only screen and (min-width: 964px){
+    .horizontal-container .filter-block{
+        order:2;
+    }
+}

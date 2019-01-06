@@ -1,36 +1,35 @@
 import React from "react";
 import Timeline, {TimelineElement} from "../../components/Timeline/Timeline";
-import { getTimelineCircolari, getTimelineProfiloStudente} from "../../tools/api";
+//import { getTimelineCircolari, getTimelineProfiloStudente} from "../../tools/api";
 
-//props.type -> tipo di funzione da invocare (promise) per ottenere determinati dati
+//props.fetchData -> funzione da invocare (promise) per ottenere determinati dati
 
 class TimelineAsync extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            title = "",
-            elements = []
+            elements = [
+                {
+                    title: "Caricamento...",
+                    date: "...",
+                    text: "Caricamento " + props.title +" in corso"
+                }
+            ]
         }
     }
 
-    componentDidMount(){
-        //Right?
-        switch(this.props.type){
-            case "circolari":
-                this.setState({ getTimelineCircolari() });//segreteria+studente+insegnante
-                break;
-            case "profiloStudente":
-                this.setState({ getTimelineProfiloStudente() });
-                break;
-            default:
-                break;
+    async componentDidMount(){
+
+        if(this.props.fetchData && typeof this.props.fetchData == "function"){
+            let elements = await this.props.fetchData();
+            this.setState({elements});
         }
     }
 
     render(){
         return(
-            <Timeline title={this.state.title} type={this.props.type}>
+            <Timeline title={this.props.title}>
                 {this.state.elements.map(
                     (timelineElement)=>{
                         return (
@@ -44,3 +43,9 @@ class TimelineAsync extends React.Component{
         );
     }
 }
+
+/**
+ * declare as (example):
+ *                          name                    function                
+ * <TimelineAsync title="Circolari" fetchData={getTimelineCircolari} />
+ */
