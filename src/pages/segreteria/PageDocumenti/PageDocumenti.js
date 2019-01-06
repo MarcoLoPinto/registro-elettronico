@@ -1,12 +1,12 @@
 import React from "react";
 import "./PageDocumenti.css";
 
-import { getDocuments } from "../../tools/api";
+import { getDocuments } from "../../../tools/api";
 
-import FileManager from "../../components/FileManager/FileManager";
-import MainDropDown from "../../components/MainDropDown/MainDropDown";
-import DatePicker from "../../components/DatePicker/DatePicker";
-import TimePicker from "../../components/TimePicker/TimePicker";
+import FileManager from "../../../components/FileManager/FileManager";
+import MainDropDown from "../../../components/MainDropDown/MainDropDown";
+import DatePicker from "../../../components/DatePicker/DatePicker";
+import TimePicker from "../../../components/TimePicker/TimePicker";
 
 
 export default class PageDocumenti extends React.Component {

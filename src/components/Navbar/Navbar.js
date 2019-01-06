@@ -8,7 +8,7 @@ class Navbar extends React.Component {
     render() { // title, user, 
         return (
             //Navigation top bar
-            <nav {...this.props} className="navbar navbar-dark bg-success navbar-expand-md justify-content-center navbar-height" role="navigation">
+            <nav {...this.props} className="navbar navbar-dark sticky-top bg-success navbar-expand-md justify-content-center navbar-height" role="navigation">
 
                 {/*Logo&Name*/}
                 <div className="navbar-brand w-50 mr-auto">
