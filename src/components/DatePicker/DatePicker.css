@@ -12,10 +12,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 6px 2px;
+    margin: 0px 0px;
 }
 
 .datepicker-container label{
     margin: 0px;
-    margin-right: 2px; 
+    margin-right: 4px; 
 }

@@ -74,6 +74,11 @@
     }
 }
 
+/*MOUSE HOVER POINTER*/
+.mouse-hover:hover{
+    cursor: pointer;
+}
+
 /*SCROLLBAR STYLE*/
 .customScrollBar::-webkit-scrollbar{
 	width: 8px;
