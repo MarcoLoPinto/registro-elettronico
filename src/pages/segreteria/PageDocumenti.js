@@ -47,8 +47,8 @@ export default class PageDocumenti extends React.Component {
                     )}
                     </div>
                     <div className="filter-block flex-fill">
-                        <TimePicker className="btn-success" label="Da"/>
                         <DatePicker className="btn-success" label="Da:"/>
+                        <DatePicker className="btn-success" label="A:"/>
                         <MainDropDown options={["Licenza", "Ferie", "Pagelle", "Altro"]} maxwidth={"100%"} className="dropdown-centered btn-success" />
                     </div>
                 </div>

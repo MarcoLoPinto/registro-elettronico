@@ -39,7 +39,7 @@ class Navigation extends React.Component {
                     </Sidebar>
 
                     {/*Main content routing*/}
-                    <div className="main-content customScrollBar container">
+                    <div className="customScrollBar container">
                         <Route path="/" exact component={Mainpage} />
                         <Route path="/profilo" exact component={Profilo} />
                         <Route path="/messaggi" exact component={Messaggi} />
