@@ -34,3 +34,16 @@
     height: 100%;
     border-radius: 0px;
 }
+
+.dropdown-padding{
+    padding: .563rem .75rem;
+    width: 100%;
+    overflow: auto;
+    
+}
+
+.dropdown-style{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}

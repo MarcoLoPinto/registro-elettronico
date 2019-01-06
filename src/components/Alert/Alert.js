@@ -17,6 +17,7 @@
  *          Css rules for the entire component
  *          if you want it at bottom screen -> "alert-bottom"
  *          if you want it at top screen -> "alert-top"
+ *          if you want it centered in the relative div wrapper -> "relative-center"
  * 
  *      alertclass:
  *          Css rules for only the alert style
@@ -40,8 +41,11 @@ class Alert extends React.Component {
         this.state = { seconds: parseFloat(props.seconds) || -1 };
         
         this.alert = React.createRef();
+        this.timeout = [];
 
         this.toggleAlert = this.toggleAlert.bind(this);
+        this.closeAlert = this.closeAlert.bind(this);
+        this.showAlert = this.showAlert.bind(this);
     }
 
     componentDidMount(){
@@ -49,7 +53,7 @@ class Alert extends React.Component {
         if(this.state.seconds<-1) throw "Seconds must be >= -1";
         else if(this.state.seconds!=-1) {
             $('#'+this.props.id).on('shown.bs.modal', (e)=> {
-                setTimeout(() => this.toggleAlert(), this.state.seconds*1000);
+                this.timeout.push(setTimeout(() => this.closeAlert(), this.state.seconds*1000));
             });
         }
     }
@@ -57,6 +61,21 @@ class Alert extends React.Component {
     toggleAlert(){
         const $ = $ || window.$;
         $('#'+this.props.id).modal("toggle");
+        this.timeout.map((timeoutElement)=> clearTimeout(timeoutElement) );
+        //TODO try to use this.alert to remove jQuery
+    }
+
+    closeAlert(){
+        const $ = $ || window.$;
+        $('#'+this.props.id).modal("hide");
+        this.timeout.map((timeoutElement)=> clearTimeout(timeoutElement) );
+        //TODO try to use this.alert to remove jQuery
+    }
+
+    showAlert(){
+        const $ = $ || window.$;
+        this.timeout.map((timeoutElement)=> clearTimeout(timeoutElement) );
+        $('#'+this.props.id).modal("show");
         //TODO try to use this.alert to remove jQuery
     }
 
@@ -70,7 +89,7 @@ class Alert extends React.Component {
                             <div className={"modal-header"+(this.props.alertclass!==undefined?" "+this.props.alertclass:"")} >
                                 {/* <h5 className="modal-title" id={this.props.labelledby}></h5> */}
                                 {this.props.children}
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeAlert}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>

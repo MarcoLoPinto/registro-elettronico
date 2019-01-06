@@ -7,7 +7,7 @@ class MainDropDown extends React.Component{
         let {className =  "", maxWidth = "100%", ...cProps} = this.props;
         return(
             <select {...cProps} 
-            className={"btn "+(this.props.className!==undefined?this.props.className:"")} 
+            className={"dropdown-style btn "+(this.props.className!==undefined?this.props.className:"")} 
             style={{maxWidth:this.props.maxwidth} } >
                 {this.props.options.map(
                     (i)=>{
