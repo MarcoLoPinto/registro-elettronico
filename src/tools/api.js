@@ -287,6 +287,24 @@ export function getDocuments(){
     });
 }
 
+
+export function searchDocuments(da,a,categoria,keyword){
+    return new Promise((resolve,reject) => {
+        resolve([
+            {
+                oggetto: "Licenza Maternità " + keyword,
+                data: da,
+                categoria: categoria
+            },
+            {
+                oggetto: "Pagellino Alberto Santi " + keyword,
+                data: a,
+                categoria: categoria
+            }
+        ]);
+    });
+}
+
 export function getUserlist(inputNome,inputCognome,inputDataNascita,inputLuogoNascita,inputCodiceFiscale){
     return new Promise((resolve,reject) => {
         resolve([
@@ -325,6 +343,7 @@ export function getUserlist(inputNome,inputCognome,inputDataNascita,inputLuogoNa
                 data_di_nascita: "data/di/nascita4",
                 luogo_di_nascita: "luogo di nascita4",
                 tipo: "segreteria"
+
             }
         ]);
     });

@@ -6,7 +6,7 @@ class Sidebar extends React.Component{
 
     render(){
         return(
-            <div {...this.props} className={"navbar-nav navbar-default sidebar-content customScrollBar"+(this.props.className!==undefined?" "+this.props.className:"")} 
+            <div {...this.props} className={"navbar-nav navbar-default sidebar-content "+(this.props.className!==undefined?" "+this.props.className:"")} 
             role="navigation"  >
                 {this.props.children}
             </div>

@@ -1,4 +1,14 @@
 /*COLORS*/
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    overflow: hidden;
+}
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+    display: flex;
+    flex-direction: column;
+}
+
 :root{
     --primary-color: #00c853;
     --primary-color-light: #5efc82;
@@ -51,40 +61,4 @@
 :active.focus,
 .active.focus{
     outline: none !important;
-}
-
-/*SIDE BAR AND MAIN CONTENT STYLE*/
-.outer-navbar{
-    height: calc(100vh - 56px);
-	display: flex;
-	flex-direction: row;
-	flex: 1 0 auto;
-}
-
-.outer-navbar > .main-content {
-	/*flex: 1;
-    overflow: hidden;*/
-    overflow: auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-@media only screen and (min-width: 768px){
-    .outer-navbar > .main-content{
-        width: calc(100vw - 250px);
-    }
-}
-
-/*MOUSE HOVER POINTER*/
-.mouse-hover:hover{
-    cursor: pointer;
-}
-
-/*SCROLLBAR STYLE*/
-.customScrollBar::-webkit-scrollbar{
-	width: 8px;
-	background-color: #F5F5F5;
-}
-
-.customScrollBar::-webkit-scrollbar-thumb{
-	background-color: var(--primary-color-light);
 }

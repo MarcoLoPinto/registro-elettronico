@@ -1,3 +1,25 @@
 .relative-main{
     position: relative;
 }
+
+/*SIDE BAR AND MAIN CONTENT STYLE*/
+.outer-navbar{
+    height: calc(100vh - 56px);
+	display: flex;
+	flex-direction: row;
+	flex: 1 0 auto;
+}
+
+.outer-navbar > .main-content {
+	/*flex: 1;
+    overflow: hidden;*/
+    max-width: 100% !important; 
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+@media only screen and (min-width: 768px){
+    .outer-navbar > .main-content{
+        width: calc(100vw - 250px);
+    }
+}

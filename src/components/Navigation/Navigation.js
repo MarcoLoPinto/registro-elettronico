@@ -7,7 +7,7 @@ import Sidebar, { SidebarLink } from "../Sidebar/Sidebar"
 import { getUserInfo } from "../../tools/api";
 
 import {Mainpage, Profilo, Messaggi, Logout, TimelineLink} from "../../pages";
-import PageDocumenti from "../../pages/segreteria/PageDocumenti";
+import PageDocumenti from "../../pages/segreteria/PageDocumenti/PageDocumenti";
 import PageCreazioneProfili from "../../pages/segreteria/PageCreazioneProfili/PageCreazioneProfili";
 import PageRicercaUtenti from "../../pages/segreteria/PageRicercaUtenti/PageRicercaUtenti";
 import "./Navigation.css";
