@@ -15,4 +15,4 @@ export default class DatePicker extends React.Component{
     }
 }
 
-//<DatePicker className="btn-success"/>
+//<DatePicker className="btn-success" lebel="lebel"/>
