@@ -287,6 +287,7 @@ export function getDocuments(){
     });
 }
 
+
 export function searchDocuments(da,a,categoria,keyword){
     return new Promise((resolve,reject) => {
         resolve([
@@ -299,6 +300,50 @@ export function searchDocuments(da,a,categoria,keyword){
                 oggetto: "Pagellino Alberto Santi " + keyword,
                 data: a,
                 categoria: categoria
+            }
+        ]);
+    });
+}
+
+export function getUserlist(inputNome,inputCognome,inputDataNascita,inputLuogoNascita,inputCodiceFiscale){
+    return new Promise((resolve,reject) => {
+        resolve([
+            {
+                ID: "ID1",
+                nome: "nome1",
+                cognome: "cognome1",
+                CF: "codice fiscale1",
+                data_di_nascita: "data/di/nascita1",
+                luogo_di_nascita: "luogo di nascita1",
+                tipo: "insegnante"
+            },
+            {
+                ID: "ID2",
+                nome: "nome2",
+                cognome: "cognome2",
+                CF: "codice fiscale2",
+                data_di_nascita: "data/di/nascita2",
+                luogo_di_nascita: "luogo di nascita2",
+                tipo: "studente"
+            },
+            {
+                ID: "ID3",
+                nome: "nome3",
+                cognome: "cognome3",
+                CF: "codice fiscale3",
+                data_di_nascita: "data/di/nascita3",
+                luogo_di_nascita: "luogo di nascita3",
+                tipo: "genitore"
+            },
+            {
+                ID: "ID4",
+                nome: "nome4",
+                cognome: "cognome4",
+                CF: "codice fiscale4",
+                data_di_nascita: "data/di/nascita4",
+                luogo_di_nascita: "luogo di nascita4",
+                tipo: "segreteria"
+
             }
         ]);
     });
