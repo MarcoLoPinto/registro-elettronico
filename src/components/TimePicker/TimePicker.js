@@ -15,4 +15,4 @@ export default class TimePicker extends React.Component{
     }
 }
 
-//<TimePicker className="btn-success" lebel="lebel"/>
+//<TimePicker className="btn-success" label="lebel"/>

@@ -303,3 +303,70 @@ export function searchDocuments(da,a,categoria,keyword){
         ]);
     });
 }
+
+var daAOra_stub = [
+    {
+         num_ora: 1,
+         giorno_settimana: 1,
+         da: "08:20",
+         a: "09:20"
+    },
+    {
+        num_ora: 2,
+        giorno_settimana: 1,
+        da: "09:20",
+        a: "10:20"
+    },
+    {
+        num_ora: 1,
+        giorno_settimana: 2,
+        da: "08:20",
+        a: "09:20"
+   }
+];
+
+export function getDaAOra(){
+    return new Promise((resolve,reject) => {
+        resolve(daAOra_stub);
+    });
+}
+
+/**
+ * Set value for Da-a_ora table
+ * @param {Array} daAOra - Array formatted as the database array returned by "getDaAOra" 
+ */
+export function setDaAOra(daAOra){
+    daAOra_stub = daAOra
+    return new Promise((resolve,reject) => {
+        resolve(daAOra);
+    });
+}
+
+let classes = [
+    {
+        anno_sezione: 1,
+        sezione: "A"
+    },
+    {
+        anno_sezione: 1,
+        sezione: "B"
+    },
+    {
+        anno_sezione: 2,
+        sezione: "A"
+    }
+
+]
+
+export function addNewClass(cls){
+    classes.push(cls);
+    return new Promise((resolve,reject) => {
+        resolve(true);
+    });
+}
+
+export function getClasses(){
+    return new Promise((resolve,reject) => {
+        resolve(classes);
+    });
+}

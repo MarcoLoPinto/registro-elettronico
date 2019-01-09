@@ -1,0 +1,26 @@
+.__flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.table-margin-bottom{
+    margin-bottom: 40px;
+}
+
+.btn_h40{
+    height: 40px;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+}
+
+.input-area-aggiungi-classe{
+    margin: 0 8px;
+    width: unset;
+    height: 40px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+}
+
+.list-type_classi{
+    list-style-type: disc;
+}

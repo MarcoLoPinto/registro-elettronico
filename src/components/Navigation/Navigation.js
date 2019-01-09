@@ -9,6 +9,7 @@ import { getUserInfo } from "../../tools/api";
 import {Mainpage, Profilo, Messaggi, Logout, TimelineLink} from "../../pages";
 import PageDocumenti from "../../pages/segreteria/PageDocumenti/PageDocumenti";
 import PageCreazioneProfili from "../../pages/segreteria/PageCreazioneProfili/PageCreazioneProfili";
+import PageDatiGenerici from "../../pages/segreteria/PageDatiGenerici/PageDatiGenerici";
 import "./Navigation.css";
 
 class Navigation extends React.Component {
@@ -39,6 +40,7 @@ class Navigation extends React.Component {
                         <SidebarLink to={"/profilo"}>AltroProfilo</SidebarLink>
                         <SidebarLink to={"/documenti"}>Documenti</SidebarLink>
                         <SidebarLink to={"/creazioneprofili"}>Creazione Profili</SidebarLink>
+                        <SidebarLink to={"/datigenerici"}>Dati Generici</SidebarLink>
                     </Sidebar>
 
                     {/*Main content routing*/}
@@ -50,6 +52,7 @@ class Navigation extends React.Component {
                         <Route path="/timelinelink" exact component={TimelineLink} />
                         <Route path="/documenti" exact component={PageDocumenti} />
                         <Route path="/creazioneprofili" exact component={PageCreazioneProfili} />
+                        <Route path="/datigenerici" exact component={PageDatiGenerici} />
                     </div>
 
                 </div>
