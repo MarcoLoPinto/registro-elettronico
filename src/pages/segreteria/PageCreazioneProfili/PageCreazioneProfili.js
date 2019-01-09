@@ -4,6 +4,7 @@ import MainDropDown from "../../../components/MainDropDown/MainDropDown";
 import { createUserProfile } from "../../../tools/api";
 import Alert from "../../../components/Alert/Alert";
 import "./PageCreazioneProfili.css";
+import DatePicker from "../../../components/DatePicker/DatePicker";
 
 class PageCreazioneProfili extends React.Component{ //TODO: auto-redirect to ricerca utenti(?)
 
@@ -51,8 +52,8 @@ class PageCreazioneProfili extends React.Component{ //TODO: auto-redirect to ric
                                 <button type="submit" className="btn btn-success mt-3">Crea</button>
                             </div>
                             <div className="d-flex flex-column ml-3">
-                                <AreaInputText className="set-dimensions input-visible-classic" placeholder="Anno di nascita..." name="annoNascita" />
-                                <MainDropDown className="set-dimensions dropdown-centered btn-success dropdown-padding mt-3" maxwidth={"100%"} options={["Insegnante", "Studente", "Genitore"]} name="tipoProfilo" />
+                                <DatePicker className="btn-success" name="annoNascita"/>
+                                <MainDropDown className="dropdown-centered btn-success dropdown-padding mt-3" maxwidth={"100%"} options={["Insegnante", "Studente", "Genitore"]} name="tipoProfilo" />
                             </div>
                         </div>
                         

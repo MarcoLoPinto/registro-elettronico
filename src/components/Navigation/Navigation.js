@@ -10,6 +10,7 @@ import {Mainpage, Profilo, Messaggi, Logout, TimelineLink} from "../../pages";
 import PageDocumenti from "../../pages/segreteria/PageDocumenti/PageDocumenti";
 import PageCreazioneProfili from "../../pages/segreteria/PageCreazioneProfili/PageCreazioneProfili";
 import PageDatiGenerici from "../../pages/segreteria/PageDatiGenerici/PageDatiGenerici";
+import PageRicercaUtenti from "../../pages/segreteria/PageRicercaUtenti/PageRicercaUtenti";
 import "./Navigation.css";
 
 class Navigation extends React.Component {
@@ -41,6 +42,7 @@ class Navigation extends React.Component {
                         <SidebarLink to={"/documenti"}>Documenti</SidebarLink>
                         <SidebarLink to={"/creazioneprofili"}>Creazione Profili</SidebarLink>
                         <SidebarLink to={"/datigenerici"}>Dati Generici</SidebarLink>
+                        <SidebarLink to={"/ricercautenti"}>Ricerca Utenti</SidebarLink>
                     </Sidebar>
 
                     {/*Main content routing*/}
@@ -53,6 +55,7 @@ class Navigation extends React.Component {
                         <Route path="/documenti" exact component={PageDocumenti} />
                         <Route path="/creazioneprofili" exact component={PageCreazioneProfili} />
                         <Route path="/datigenerici" exact component={PageDatiGenerici} />
+                        <Route path="/ricercautenti" exact component={PageRicercaUtenti} />
                     </div>
 
                 </div>
