@@ -378,3 +378,54 @@ export function getChildren(ID){
         
     });
 }
+
+/** sets student id as child of father
+ * 
+ * @param {String} id - user's son id
+ * @param {String} fatherid - user's father id
+ */
+export function setAsChild(id,fatherid){
+    return new Promise((resolve,reject) => {
+        resolve({sent: true});
+    });
+}
+
+/** removes student id as child of father
+ * 
+ * @param {String} id - user's son id
+ * @param {String} fatherid - user's father id
+ */
+export function removeAsChild(id,fatherid){
+    return new Promise((resolve,reject) => {
+        resolve({sent: true});
+    });
+}
+
+export function getClassiAndPortfolio(ID){
+    return new Promise((resolve,reject) => {
+        setTimeout(() =>{
+            resolve({
+                classi:[
+                    {
+                        anno_sezione: "ID1",
+                        sezione: "nome1"
+                    },
+                    {
+                        anno_sezione: "ID1",
+                        sezione: "nome1"
+                    },
+                    {
+                        anno_sezione: "ID1",
+                        sezione: "nome1"
+                    },
+                    {
+                        anno_sezione: "ID1",
+                        sezione: "nome1"
+                    }
+                ],
+                portfolio: "Bla bla bal...."
+            });
+        },2000)
+        
+    });
+}

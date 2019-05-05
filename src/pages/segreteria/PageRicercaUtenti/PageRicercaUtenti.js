@@ -2,9 +2,11 @@ import React from "react";
 import Userlist, {UserListElement} from "../../../components/Userlist/Userlist";
 import AreaInputText from "../../../components/AreaInputText/AreaInputText";
 import DatePicker from "../../../components/DatePicker/DatePicker";
+import MainTextarea from "../../../components/MainTextarea/MainTextarea";
 import Alert from "../../../components/Alert/Alert";
-import { getUserlist, getChildren } from "../../../tools/api";
+import { getUserlist, getChildren, setAsChild, removeAsChild, getClassiAndPortfolio } from "../../../tools/api";
 import Popup, {PopupBody} from "../../../components/Popup/Popup";
+import MainDropDown from "../../../components/MainDropDown/MainDropDown";
 
 class PageRicercaUtenti extends React.Component{
 
@@ -15,7 +17,9 @@ class PageRicercaUtenti extends React.Component{
             elements:[],
             selected: {tipo: null},
             popupBody:(<div></div>),
-            figli: "Caricamento..."
+            selectedElementsStudente: "Caricamento...",
+            selectedElementsGenitore: "Caricamento...",
+            selectedElementsInsegnante: "Caricamento..."
         };
 
         this.getData = this.getData.bind(this);
@@ -23,6 +27,10 @@ class PageRicercaUtenti extends React.Component{
         this.getFigli = this.getFigli.bind(this);
         this.alertCreation = React.createRef();
         this.popupUser = React.createRef();
+        
+        this.setChild = this.setChild.bind(this);
+        this.removeChild = this.removeChild.bind(this);
+        this.getStudentElements = this.getStudentElements.bind(this);
     }
 
     getData(e){
@@ -42,17 +50,28 @@ class PageRicercaUtenti extends React.Component{
         }); //API
     }
 
-    async getFigli(id,callback){
-        let figli = (await getChildren(id)).map((item)=> <p>{item.ID}</p>)
-        this.setState({figli},()=>console.log(figli));
-        console.log(this.state);
+    async getFigli(id){
+        let selectedElementsGenitore = (await getChildren(id)).map((item)=> <p onClick={()=>this.removeChild(item.ID,id)} className="mouse-hover">{"remove "+item.ID}</p>);
+        this.setState({selectedElementsGenitore}/*,()=>console.log(figli)*/);
+        //console.log(this.state);
+    }
+
+    async getStudentElements(id){
+        let selectedElementsStudente = (await getClassiAndPortfolio(id)); //continue from here
+        selectedElementsStudente.classi = ( <MainDropDown options={selectedElementsStudente.classi.map((item)=>  item.sezione+item.anno_sezione)} className="dropdown-centered btn-success" />  );
+        this.setState({selectedElementsStudente}/*,()=>console.log(figli)*/);
+        //console.log(this.state);
     }
 
     openPopup(index){
         this.setState((state) => ({selected: state.elements[index]}),()=>{
             switch(this.state.selected.tipo){
                 case "genitore":
-                    this.getFigli(this.state.elements[index].ID);
+                    this.setState({selectedElementsGenitore:"Caricamento..."},()=>this.getFigli(this.state.elements[index].ID));
+                    this.popupUser.current.togglePopup();
+                    break;
+                case "studente":
+                    this.setState({selectedElementsStudente:"Caricamento..."},()=>this.getStudentElements(this.state.elements[index].ID));
                     this.popupUser.current.togglePopup();
                     break;
                 default:
@@ -60,6 +79,24 @@ class PageRicercaUtenti extends React.Component{
             }
         });
         
+    }
+
+    setChild(e,fatherid){
+        e.preventDefault();
+        let inputID = e.target.elements["id"].value;
+        console.log("adding "+inputID+" to father: "+fatherid);
+        if(inputID=="") this.alertCreation.current.toggleAlert();
+        else {
+            setAsChild(inputID,fatherid); //API
+            this.getFigli(fatherid);
+        }
+    }
+
+    removeChild(id,fatherid){
+        console.log("removing "+id+" from father: "+fatherid);
+        removeAsChild(id,fatherid); //API
+        this.getFigli(fatherid);
+
     }
 
     render(){
@@ -98,12 +135,12 @@ class PageRicercaUtenti extends React.Component{
                         { 
                             this.state.selected.tipo == "genitore" && (
                                 <div>
-                                    <div className="d-flex flex-row justify-content-center">
-                                        <AreaInputText className="input-visible-classic input-area-documenti" name="keyword" />
+                                    <form className="d-flex flex-row justify-content-center" onSubmit={ (e) => this.setChild(e,this.state.selected.ID)}>
+                                        <AreaInputText className="input-visible-classic input-area-documenti" name="id" />
                                         <button type="submit" className="btn btn-success">+</button>
-                                    </div>
+                                    </form>
                                     <div className="dropdown-divider"></div>
-                                    {this.state.figli}
+                                    {this.state.selectedElementsGenitore}
                                 </div>
                             )
                         }
@@ -115,7 +152,21 @@ class PageRicercaUtenti extends React.Component{
                                         <button type="submit" className="btn btn-success">+</button>
                                     </div>
                                     <div className="dropdown-divider"></div>
-                                    {this.state.figli}
+                                    {this.state.selectedElementsInsegnante?this.state.selectedElementsInsegnante:"Caricamento..."}
+                                </div>
+                            )
+                        }
+                        { 
+                            this.state.selected.tipo == "studente" && (
+                                <div>
+                                    <form className="d-flex flex-row justify-content-center" onSubmit={ this.setPermissions }>
+                                        <AreaInputText className="input-visible-classic input-area-documenti" placeholder="ritardo" name="ritardo" />
+                                        <AreaInputText className="input-visible-classic input-area-documenti" placeholder="uscita" name="uscita" />
+                                        {this.state.selectedElementsStudente.classi?this.state.selectedElementsStudente.classi:"Caricamento..."}
+                                        <button type="submit" className="btn btn-success">Modifica</button>
+                                    </form>
+                                    <div className="dropdown-divider"></div>
+                                    <MainTextarea value={this.state.selectedElementsStudente.portfolio?this.state.selectedElementsStudente.portfolio:"Caricamento..."}/>
                                 </div>
                             )
                         }
